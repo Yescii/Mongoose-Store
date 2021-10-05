@@ -48,7 +48,7 @@ body {
   border-radius: 1rem;
   width: 20rem;
   height: 24.5rem;
-  background-color: coral;
+  background-color: white;
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
