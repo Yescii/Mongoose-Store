@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="/css/show.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Varela+Round&display=swap"
+      rel="stylesheet"
+    />
+    <title>Show</title>
+  </head>
+  <body>
+    <div class="store">
+      <a href="">Back to Store</a>
+      <h1><%=item.name%></h1>
+      <div class="product-con">
+        <img src="<%= item.img %>" alt="" />
+        <p><%= item.description%></p>
+        <p>Price: <%= item.price %></p>
+
+        <form action="">
+          <input type="Submit" value="Buy" />
+        </form>
+
+        <a href="">Edit this product</a>
+      </div>
+      <form action="">
+        <input type="Submit" value="DELETE" />
+      </form>
+    </div>
+  </body>
+</html>
