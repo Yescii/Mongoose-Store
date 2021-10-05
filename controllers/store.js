@@ -36,4 +36,23 @@ storeRouter.get("/", (req, res) => {
   });
 });
 
+//NEW
+
+//DELETE
+
+//UPDATE
+
+// Update
+
+// Create
+
+//EDIT
+
+// SHOW
+storeRouter.get("/:id", (req, res) => {
+  Store.findById(req.params.id, (err, foundItem) => {
+    res.render("show.ejs", { item: foundItem });
+  });
+});
+
 module.exports = storeRouter;
