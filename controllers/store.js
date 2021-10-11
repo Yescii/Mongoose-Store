@@ -37,6 +37,11 @@ storeRouter.get("/", (req, res) => {
 });
 
 //NEW
+storeRouter.get("/new", (req, res) => {
+  Store.find({}, (error, allItems) => {
+    res.render("new.ejs");
+  });
+});
 
 //DELETE
 
@@ -45,6 +50,11 @@ storeRouter.get("/", (req, res) => {
 // Update
 
 // Create
+storeRouter.post("/", (req, res) => {
+  Store.create(req.body, (error, createdPost) => {
+    res.redirect("/store");
+  });
+});
 
 //EDIT
 
