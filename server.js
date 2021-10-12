@@ -1,12 +1,13 @@
 // DEPENDENCIES
 const express = require("express");
 const mongoose = require("mongoose");
-// const Book = require("./models/book.js");
+const methodOverride = require("method-override");
 const app = express();
 require("dotenv").config();
 
 // MIDDLEWARE and Static Files
 app.use(express.urlencoded({ extended: true }));
+app.use(methodOverride("_method"));
 app.use(express.static("public"));
 app.use("/css", express.static(__dirname + "public/css"));
 

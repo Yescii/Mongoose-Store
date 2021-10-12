@@ -44,12 +44,20 @@ storeRouter.get("/new", (req, res) => {
 });
 
 //DELETE
+storeRouter.delete("/:id", (req, res) => {
+  Store.findByIdAndRemove(req.params.id, (err, data) => {
+    res.redirect("/store");
+  });
+});
 
 //UPDATE
+storeRouter.put("/:id", (req, res) => {
+  Store.findByIdAndUpdate(req.params.id, req.body, (error, updatedPost) => {
+    res.redirect(`/store/${req.params.id}`);
+  });
+});
 
-// Update
-
-// Create
+//CREATE
 storeRouter.post("/", (req, res) => {
   Store.create(req.body, (error, createdPost) => {
     res.redirect("/store");
@@ -57,6 +65,23 @@ storeRouter.post("/", (req, res) => {
 });
 
 //EDIT
+storeRouter.get("/:id/edit", (req, res) => {
+  Store.findById(req.params.id, (error, foundItem) => {
+    res.render("edit.ejs", {
+      item: foundItem,
+    });
+  });
+});
+
+//EDIT
+storeRouter.get("/:id/buy", (req, res) => {
+  Store.findById(req.params.id, (error, foundItem) => {
+    let qty = foundItem.qty - 1;
+    foundItem.qty = qty;
+    foundItem.save();
+    res.render("show.ejs", { item: foundItem });
+  });
+});
 
 // SHOW
 storeRouter.get("/:id", (req, res) => {
